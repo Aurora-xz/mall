@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>merchant home</title>
+</head>
+<body>
+<h1>Welcome, <span th:utext="${session.user.getUsername()}"></span></h1>
+
+<a th:href="@{/merchant/products}">查看所有商品</a><br>
+<a th:href="@{/merchant/addProduct}">添加商品</a><br>
+<a th:href="@{/merchant/order}">查看订单</a><br>
+<a th:href="@{/logout}">登出</a><br>
+</body>
+</html>

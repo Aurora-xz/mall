@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mall.mapper.ProductMapper">
+    <insert id="insertProduct">
+        insert into goods(title, price, stock, factory, description) values (#{title}, #{price}, #{stock}, #{factory}, #{description})
+    </insert>
+    <update id="updateProduct">
+        update goods set title = #{title}, price = #{price}, stock = #{stock}, description = #{description} where id = #{id}
+    </update>
+    <update id="reduceStock">
+        update goods set stock = stock - 1 where id = #{id}
+    </update>
+    <delete id="deleteById">
+        delete from goods where id = #{id}
+    </delete>
+
+    <select id="getAllProducts" resultType="com.example.mall.pojo.Product">
+        select * from goods
+    </select>
+    <select id="selectProductById" resultType="com.example.mall.pojo.Product">
+        select * from goods where id = #{id}
+    </select>
+    <select id="getPriceById" resultType="java.math.BigDecimal">
+        select price from goods where id = #{id}
+    </select>
+    <select id="getPIdsByUName" resultType="java.lang.Integer">
+        select id from goods where factory = #{username}
+    </select>
+</mapper>

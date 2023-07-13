@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>订单</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th colspan="6">订单列表</th>
+    </tr>
+    <tr>
+        <th>列表号</th>
+        <th>商品编号</th>
+        <th>目的地</th>
+        <th>订单状态</th>
+        <th>下单时间</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="order,status : ${orders}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${order.productId}"></td>
+        <td th:text="${order.destination}"></td>
+        <td th:text="${order.state}"></td>
+        <td th:text="${#temporals.format(order.createdAt,'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td>
+            <a th:href="@{'/merchant/order/'+${order.id}}">修改订单状态</a>
+        </td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/merchant/home}">back to home</a>
+
+
+</body>
+</html>

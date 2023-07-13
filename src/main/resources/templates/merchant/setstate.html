@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>设置订单状态</title>
+</head>
+<body>
+<form th:action="@{/merchant/order/setstate}" method="post">
+    <input type="hidden" id="id" name="id" th:value="${order.id}">
+    <label for="state">设置状态：</label>
+    <input type="text" id="state" name="state" required>
+
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>

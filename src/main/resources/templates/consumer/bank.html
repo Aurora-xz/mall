@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>充值与地址</title>
+</head>
+<body>
+    <h1>充值入口 地址修改</h1>
+    <form th:action="@{/consumer/bank/recharge}" method="post">
+        <label for="amount">金额：</label>
+        <input type="text" id="amount" name="amount" required>
+
+        <button type="submit">提交</button>
+    </form>
+
+    <br>
+    <form th:action="@{/consumer/bank/destination}" method="post">
+        <label for="destination">目的地：</label>
+        <input type="text" id="destination" name="destination" required>
+
+        <button type="submit">提交</button>
+    </form>
+    <br>
+    <a th:href="@{/consumer/home}">back to home</a>
+</body>
+</html>

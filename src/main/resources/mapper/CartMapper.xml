@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mall.mapper.CartMapper">
+    <insert id="insertCart">
+        insert into cart(userId, productId) values (#{userId}, #{PId})
+    </insert>
+    <delete id="deleteByTwoId">
+        delete from cart where userId = #{UId} and productId = #{PId}
+    </delete>
+
+    <select id="getProductIdsByUserId" resultType="java.lang.Integer">
+        select productId from cart where userId = #{userId}
+    </select>
+    <select id="findByUIdAndPId" resultType="com.example.mall.pojo.Cart">
+        select * from cart where userId = #{UId} and productId = #{PId}
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+</head>
+<body>
+<h1>个人信息</h1>
+
+<p>用户名: <span th:text="${session.user.username}"></span></p>
+<p>角色: <span th:text="${session.user.role == 0 ? '商家' : '消费者'}"></span></p>
+<p>金额: <span th:text="${session.user.amount}"></span></p>
+<p>收货地址: <span th:text="${session.user.destination}"></span></p>
+
+<br>
+<a th:href="@{/consumer/home}">back to home</a>
+</body>
+</html>

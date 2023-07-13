@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+</head>
+<body>
+<h2>Register</h2>
+<form th:action="@{/register}" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+  <br>
+  <label for="role">Role:</label>
+  <select id="role" name="role">
+    <option value="0">商家</option>
+    <option value="1">消费者</option>
+  </select>
+  <br>
+  <button type="submit">Register</button>
+</form>
+<br>
+<a th:href="@{/login}">Back to Login</a>
+
+<!--在前端获取message的信息-->
+<input type="hidden" name="message" id="message" value="${message}">
+
+<script th:inline="javascript">
+  var message = [[${message}]];
+  if (message) {
+    alert(message);
+  }
+</script>
+
+</body>
+</html>
